@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.serialization)
 }
 
 android {
@@ -29,19 +30,19 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
     buildFeatures {
-        compose = true
+        viewBinding = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.12"
-    }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -50,24 +51,30 @@ android {
 }
 
 dependencies {
+    implementation(project(":network"))
+    implementation(project(":ui"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    testImplementation(libs.junit)
-    implementation(libs.ktor.client.core)
-    implementation(libs.ktor.client.android)
-    implementation(libs.ktor.client.json)
+    implementation(libs.androidx.runtime)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.koin.android)
     implementation(libs.ktor.client.serialization)
+
+    testImplementation(libs.junit)
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+    /*androidTestImplementation("androidx.fragment:fragment-testing:1.6.2")
+    androidTestImplementation("org.mockito:mockito-android:3.12.4")
+    androidTestImplementation("androidx.test:core:1.4.1")
+    androidTestImplementation("androidx.test:runner:1.4.1")*/
+    testImplementation("org.mockito:mockito-core:5.6.0")
+    debugImplementation("androidx.fragment:fragment-testing:1.6.2")
+    debugImplementation("androidx.fragment:fragment-ktx:1.6.2")
+    debugImplementation("androidx.test:core:1.5.0")
+    debugImplementation("androidx.test:rules:1.5.0")
+    debugImplementation("androidx.test:runner:1.5.2")
+    //androidTestImplementation("androidx.test:rules:1.4.1")
 }
