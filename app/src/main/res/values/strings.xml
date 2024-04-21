@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">marsRover</string>
+    <string name="main_screen_title">Hey! Do you want to explore Mars? Just send the commands to the rover and see it move on the planet</string>
+    <string name="mars_dimension_title">Set the Dimension of Mars in Coordinates</string>
+    <string name="rover_position_title">Set the Initial position of the rover in Coordinates</string>
+    <string name="rover_orientation_title">Set the orientation of the rover, in cardinal points (N, S, E, W)</string>
+    <string name="rover_commands_title">Set the orders of the rover, only valid M if you want to move forward, L if you want to turn left and R if you want to turn right</string>
+    <string name="rover_commands_placeholder">Commands only M, L or R</string>
+    <string name="main_screen_button">Send Commands</string>
+    <string name="error_empty">All the fields are mandatory</string>
+    <string name="x_coordinate_placeholder">Add x Coordinate</string>
+    <string name="y_coordinate_placeholder">Add y Coordinate</string>
+    <string name="result_screen_title">Right now the Rover is in the following position:</string>
+    <string name="result_coordinate_x">Coordinate X:</string>
+    <string name="result_coordinate_y">Coordinate Y:</string>
+    <string name="result_orientation">Orientation:</string>
+    <string name="error_message">Something wrong happened, please try again</string>
+    <string name="north">N</string>
+    <string name="south">S</string>
+    <string name="west">W</string>
+    <string name="east">E</string>
 </resources>
