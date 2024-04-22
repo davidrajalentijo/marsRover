@@ -66,18 +66,14 @@ dependencies {
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    /*androidTestImplementation("androidx.fragment:fragment-testing:1.6.2")
-    androidTestImplementation("org.mockito:mockito-android:3.12.4")
-    androidTestImplementation("androidx.test:core:1.4.1")
-    androidTestImplementation("androidx.test:runner:1.4.1")*/
-    testImplementation("org.mockito:mockito-core:5.6.0")
-    testImplementation("com.squareup.okhttp3:mockwebserver:4.9.1")
-    testImplementation("io.mockk:mockk:1.13.5")
-    testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.24")
-    debugImplementation("androidx.fragment:fragment-testing:1.6.2")
-    debugImplementation("androidx.fragment:fragment-ktx:1.6.2")
-    debugImplementation("androidx.test:core:1.5.0")
-    debugImplementation("androidx.test:rules:1.5.0")
-    debugImplementation("androidx.test:runner:1.5.2")
-    //androidTestImplementation("androidx.test:rules:1.4.1")
+
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockwebserver)
+    testImplementation(libs.mockk)
+    testImplementation(libs.assertk.jvm)
+    debugImplementation(libs.androidx.fragment.testing)
+    debugImplementation(libs.androidx.fragment.ktx)
+    debugImplementation(libs.androidx.core)
+    debugImplementation(libs.androidx.rules)
+    debugImplementation(libs.androidx.runner)
 }

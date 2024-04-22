@@ -1,24 +1,20 @@
 package com.draja.marsrover.ui.instructions
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.draja.marsrover.R
 import com.draja.marsrover.databinding.FragmentInstructionsBinding
 import com.draja.ui.ViewState
-import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class InstructionsFragment : Fragment() {
 
-    private val viewModel: MainViewModel by viewModel()
+    private val viewModel: InstructionsViewModel by viewModel()
     private lateinit var binding: FragmentInstructionsBinding
 
     override fun onCreateView(

@@ -6,15 +6,10 @@ import com.draja.marsrover.data.repository.RoverRepository
 import com.draja.marsrover.exception
 import com.draja.marsrover.roverCommandsModel
 import com.draja.marsrover.roverCommandsRequest
-import com.draja.marsrover.roverPositionModel
-import com.draja.marsrover.roverPositionResponse
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
-import org.junit.Before
 import org.junit.Test
-import org.mockito.Mock
-import org.mockito.MockitoAnnotations
 
 class MoveRoverUseCaseTest {
 

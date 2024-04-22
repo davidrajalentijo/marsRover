@@ -9,7 +9,6 @@ import com.draja.rover.entities.Position
 import io.ktor.application.Application
 import io.ktor.application.call
 import io.ktor.application.install
-import io.ktor.application.log
 import io.ktor.features.ContentNegotiation
 import io.ktor.http.HttpStatusCode
 import io.ktor.jackson.jackson
@@ -29,7 +28,6 @@ fun Application.module() {
         post("/move") {
             val moveRequest = call.receive<MoveRequest>()
 
-            log.info("Received move request: $moveRequest")
             val rover = Rover(
                 Coordinates(moveRequest.topRightCorner.x, moveRequest.topRightCorner.y),
                 Coordinates(moveRequest.roverPosition.x, moveRequest.roverPosition.y),

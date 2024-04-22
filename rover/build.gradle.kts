@@ -12,7 +12,7 @@ dependencies {
     implementation(libs.ktor.server.core)
     implementation(libs.ktor.server.netty)
     implementation(libs.ktor.jackson)
-    implementation("ch.qos.logback:logback-classic:1.3.0")
+    implementation(libs.logback.classic)
 
     testImplementation(libs.junit)
 

@@ -9,11 +9,9 @@ import com.draja.marsrover.domain.MoveRoverUseCase
 import com.draja.marsrover.domain.entity.CoordinatesModel
 import com.draja.marsrover.domain.entity.RoverCommandsModel
 import com.draja.ui.ViewState
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class MainViewModel(
+class InstructionsViewModel(
     private val moveRoverUseCase: MoveRoverUseCase
 ) : ViewModel() {
 

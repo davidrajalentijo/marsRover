@@ -1,6 +1,6 @@
 package com.draja.marsrover.di
 
-import com.draja.marsrover.ui.instructions.MainViewModel
+import com.draja.marsrover.ui.instructions.InstructionsViewModel
 import com.draja.marsrover.data.datasource.cloud.RoverCloudDataSource
 import com.draja.marsrover.data.repository.RoverRepository
 import com.draja.marsrover.data.repository.RoverRepositoryImpl
@@ -17,6 +17,6 @@ val appModule = module {
     single { GetRoverPositionUseCase(get()) }
     single { MoveRoverUseCase(get()) }
 
-    viewModel { MainViewModel(get()) }
+    viewModel { InstructionsViewModel(get()) }
     viewModel { ResultViewModel(get()) }
 }

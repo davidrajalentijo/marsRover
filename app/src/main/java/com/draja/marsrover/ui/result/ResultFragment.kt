@@ -6,15 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.draja.marsrover.R
-import com.draja.marsrover.databinding.FragmentInstructionsBinding
 import com.draja.marsrover.databinding.FragmentResultBinding
 import com.draja.marsrover.domain.entity.RoverPositionModel
-import com.draja.marsrover.ui.instructions.MainViewModel
 import com.draja.ui.ViewState
-import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ResultFragment : Fragment() {
@@ -41,7 +37,6 @@ class ResultFragment : Fragment() {
             findNavController().popBackStack()
         }
     }
-
 
     private fun roverPositionObserver() {
         viewModel.roverPosition.observe(viewLifecycleOwner) {
