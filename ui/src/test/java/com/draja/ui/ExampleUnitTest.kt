@@ -1,4 +1,4 @@
-package com.draja.marsrover
+package com.draja.ui
 
 import org.junit.Test
 

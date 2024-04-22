@@ -3,7 +3,6 @@ package com.draja.rover.domain
 import com.draja.rover.entities.Coordinates
 import com.draja.rover.entities.Direction
 
-
 class Rover(
     private val grid: Coordinates = Coordinates(),
     private var position: Coordinates = Coordinates(),

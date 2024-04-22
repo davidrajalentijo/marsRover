@@ -1,6 +1,5 @@
 package com.draja.network
 
-import android.util.Log
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.plugins.ResponseException
@@ -25,6 +24,10 @@ class NetworkService {
                 }
             }
         }
+
+        internal fun destroy() {
+            instance = null
+        }
     }
 
     suspend inline fun <reified T> createApi(
@@ -34,7 +37,6 @@ class NetworkService {
     ): Result<T> = resultApiCall {
         getHttpClient().request(BASE_URL + url) {
             method = getHttpMethod(httMethod)
-            Log.d("NetworkService", "Requesting $body")
             body?.let {
                 setBody(it)
             }

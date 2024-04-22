@@ -11,6 +11,7 @@ import io.ktor.http.contentType
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
+@PublishedApi
 internal object KtorClient {
 
     private var ktorClient: HttpClient? = null
@@ -37,5 +38,9 @@ internal object KtorClient {
         }
         ktorClient = httpClient
         return httpClient
+    }
+
+    internal fun destroyClient() {
+        ktorClient = null
     }
 }
