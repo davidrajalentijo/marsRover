@@ -8,8 +8,11 @@ To run the app, first of all you need to run the rover server.
 
 If you open the project in Android Studio, you can run the server by running the `main()`
 in  `Application`.
-You will need to change the host IP by your local IP, also in `network_security_config.xml` of the
-app module.
+You will need to change the host IP by your local IP in the `Application`class.
+Also in `network_security_config.xml` of the app module. 
+And the `BASE_URL` in the `NetworkService` class.
+
+```kotlin
 
 For the run the app, just run the app in an emulator running the app.
 
