@@ -47,12 +47,13 @@ The app has some improvements that can be done:
 
 - Improve UI (Views, animations, navigation, validations, etc)
 - Improve the error handling
+- Add feature module
 - Add network security
 - Add detekt for the code style
 
 ## Video
 
-You can see a video of the app running [here](https://drive.google.com/file/d/1Z9
+You can see a video of the app running [here](https://github.com/davidrajalentijo/marsRover/assets/6725999/5287cf0c-9625-4ee4-a0eb-8b05588d31d5)
 
 ## Author
 David Raja
