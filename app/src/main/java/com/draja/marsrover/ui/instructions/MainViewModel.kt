@@ -1,6 +1,8 @@
 package com.draja.marsrover.ui.instructions
 
 import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.draja.marsrover.domain.MoveRoverUseCase
@@ -23,8 +25,8 @@ class MainViewModel(
     var limitedTextInput = mutableStateOf("")
 
 
-    private val _moveRover = MutableStateFlow<ViewState<Boolean>>(ViewState.Idle)
-    val moveRover = _moveRover.asStateFlow()
+    private val _moveRover = MutableLiveData<ViewState<Boolean>>(ViewState.Idle)
+    val moveRover: LiveData<ViewState<Boolean>> = _moveRover
 
     fun areFieldsValid(): Boolean {
         val conditions = listOf(
@@ -62,4 +64,7 @@ class MainViewModel(
         }
     }
 
+    fun resetMoveRoverState() {
+        _moveRover.value = ViewState.Idle
+    }
 }

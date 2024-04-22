@@ -3,171 +3,197 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
-    android:padding="@dimen/m">
+    android:background="@drawable/gradient_background">
 
-    <TextView
-        android:id="@+id/main_screen_title"
-        style="@style/TextAppearance.Material3.TitleMedium"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/m"
-        android:text="@string/main_screen_title"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/mars_title"
-        style="@style/TextAppearance.Material3.BodyMedium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/m"
-        android:text="@string/mars_dimension_title"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/main_screen_title" />
-
-    <LinearLayout
-        android:id="@+id/mars_coordinates"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="@dimen/m"
-        android:weightSum="2"
-        app:layout_constraintTop_toBottomOf="@id/mars_title">
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/send_button"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/marsX"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/x_coordinate_placeholder"
-            android:inputType="number" />
+            android:padding="@dimen/m">
 
-        <EditText
-            android:id="@+id/marsY"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/y_coordinate_placeholder"
-            android:inputType="number" />
+            <TextView
+                android:id="@+id/main_screen_title"
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/m"
+                android:text="@string/main_screen_title"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/mars_title"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/m"
+                android:text="@string/mars_dimension_title"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/main_screen_title" />
 
-    <TextView
-        android:id="@+id/rover_position_title"
-        style="@style/TextAppearance.Material3.BodyMedium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/m"
-        android:text="@string/rover_position_title"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mars_coordinates" />
+            <LinearLayout
+                android:id="@+id/mars_coordinates"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/m"
+                android:weightSum="2"
+                app:layout_constraintTop_toBottomOf="@id/mars_title">
 
-    <LinearLayout
-        android:id="@+id/rover_coordinates"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="@dimen/m"
-        android:weightSum="2"
-        app:layout_constraintTop_toBottomOf="@+id/rover_position_title">
+                <EditText
+                    android:id="@+id/marsX"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/x_coordinate_placeholder"
+                    android:inputType="number" />
 
-        <EditText
-            android:id="@+id/roverX"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/x_coordinate_placeholder"
-            android:inputType="number" />
+                <EditText
+                    android:id="@+id/marsY"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/y_coordinate_placeholder"
+                    android:inputType="number" />
 
-        <EditText
-            android:id="@+id/roverY"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/y_coordinate_placeholder"
-            android:inputType="number" />
+            </LinearLayout>
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/rover_position_title"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/m"
+                android:text="@string/rover_position_title"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mars_coordinates" />
 
-    <TextView
-        android:id="@+id/rover_orientation_title"
-        style="@style/TextAppearance.Material3.BodyMedium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/m"
-        android:text="@string/rover_orientation_title"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rover_coordinates" />
+            <LinearLayout
+                android:id="@+id/rover_coordinates"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/m"
+                android:weightSum="2"
+                app:layout_constraintTop_toBottomOf="@+id/rover_position_title">
+
+                <EditText
+                    android:id="@+id/roverX"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/x_coordinate_placeholder"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/roverY"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/y_coordinate_placeholder"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/rover_orientation_title"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/m"
+                android:text="@string/rover_orientation_title"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rover_coordinates" />
 
 
-    <RadioGroup
-        android:id="@+id/directions_input"
-        app:layout_constraintTop_toBottomOf="@id/rover_orientation_title"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/m"
-        android:checkedButton="@+id/north_radio_button">
+            <RadioGroup
+                android:id="@+id/directions_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkedButton="@+id/north_radio_button"
+                android:paddingTop="@dimen/m"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rover_orientation_title">
 
-        <RadioButton
-            android:id="@+id/north_radio_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/white"
-            android:textColor="@color/white"
-            android:text="@string/north" />
+                <RadioButton
+                    android:id="@+id/north_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/white"
+                    android:text="@string/north"
+                    android:textColor="@color/white" />
 
-        <RadioButton
-            android:id="@+id/south_radio_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/white"
-            android:textColor="@color/white"
-            android:text="@string/south" />
+                <RadioButton
+                    android:id="@+id/south_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/white"
+                    android:text="@string/south"
+                    android:textColor="@color/white" />
 
-        <RadioButton
-            android:id="@+id/west_radio_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:buttonTint="@color/white"
-            android:text="@string/west" />
+                <RadioButton
+                    android:id="@+id/west_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/white"
+                    android:text="@string/west"
+                    android:textColor="@color/white" />
 
-        <RadioButton
-            android:id="@+id/east_radio_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/white"
-            android:textColor="@color/white"
-            android:text="@string/east" />
+                <RadioButton
+                    android:id="@+id/east_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/white"
+                    android:text="@string/east"
+                    android:textColor="@color/white" />
 
-    </RadioGroup>
+            </RadioGroup>
 
-    <TextView
-        android:id="@+id/rover_commands_title"
-        style="@style/TextAppearance.Material3.BodyMedium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/m"
-        android:text="@string/rover_commands_title"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/directions_input" />
+            <TextView
+                android:id="@+id/rover_commands_title"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/m"
+                android:text="@string/rover_commands_title"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/directions_input" />
 
-    <EditText
-        android:id="@+id/rover_commands_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:digits="LMR"
-        android:hint="@string/rover_commands_placeholder"
-        android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@id/rover_commands_title" />
+            <EditText
+                android:id="@+id/rover_commands_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="LMR"
+                android:hint="@string/rover_commands_placeholder"
+                android:inputType="text"
+                app:layout_constraintTop_toBottomOf="@id/rover_commands_title" />
+
+            <ProgressBar
+                android:id="@+id/loading_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminateTint="@color/white"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
     <Button
         android:id="@+id/send_button"
@@ -175,16 +201,5 @@
         android:layout_height="wrap_content"
         android:text="@string/main_screen_button"
         app:layout_constraintBottom_toBottomOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/loading_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:indeterminateTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

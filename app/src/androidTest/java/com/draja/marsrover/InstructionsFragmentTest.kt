@@ -2,20 +2,27 @@ package com.draja.marsrover
 
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.RootMatchers.withDecorView
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.draja.marsrover.di.stubAppModule
 import com.draja.marsrover.ui.instructions.InstructionsFragment
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.hamcrest.Matchers.`is`
-import org.hamcrest.Matchers.not
-
+import org.koin.core.context.startKoin
+import org.koin.core.context.stopKoin
 
 @RunWith(AndroidJUnit4::class)
 class InstructionsFragmentTest {
+
+    @Before
+    fun setUp() {
+        stopKoin()
+        startKoin {
+            modules(stubAppModule)
+        }
+    }
 
     @Test
     fun all_view_is_displayed() {

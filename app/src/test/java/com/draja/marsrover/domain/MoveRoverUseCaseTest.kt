@@ -1,40 +1,47 @@
 package com.draja.marsrover.domain
 
+import assertk.assertThat
+import assertk.assertions.isEqualTo
 import com.draja.marsrover.data.repository.RoverRepository
-import com.draja.marsrover.domain.MoveRoverUseCase
-import com.draja.marsrover.domain.RoverRepository
-import com.draja.marsrover.domain.model.Rover
+import com.draja.marsrover.exception
+import com.draja.marsrover.roverCommandsModel
 import com.draja.marsrover.roverCommandsRequest
+import com.draja.marsrover.roverPositionModel
+import com.draja.marsrover.roverPositionResponse
+import io.mockk.coEvery
+import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
-import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
-import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
 
 class MoveRoverUseCaseTest {
 
-    @Mock
-    private lateinit var roverRepository: RoverRepository
+    private val roverRepository = mockk<RoverRepository>()
+    private val moveRoverUseCase = MoveRoverUseCase(roverRepository)
 
-    private lateinit var moveRoverUseCase: MoveRoverUseCase
+    @Test
+    fun `move Rover use case OK`() = runBlocking {
+        coEvery {
+            roverRepository.moveRover(roverCommandsRequest)
+        } returns Result.success(true)
 
-    @Before
-    fun setup() {
-        MockitoAnnotations.initMocks(this)
-        moveRoverUseCase = MoveRoverUseCase(roverRepository)
+
+        val actual = moveRoverUseCase.invoke(roverCommandsModel)
+
+        assertThat(actual.getOrThrow()).isEqualTo(true)
     }
 
     @Test
-    fun `test move rover use case`() = runBlocking {
+    fun `move Rover use case ERROR`() = runBlocking {
+        coEvery {
+            roverRepository.moveRover(roverCommandsRequest)
+        } returns Result.failure(exception)
 
-       // `when`(roverRepository.moveRover(roverCommandsRequest)).thenReturn(Result.success(true)
 
-        // Act
-        /*val result = moveRoverUseCase?.execute(roverCommandsRequest)
+        val actual = moveRoverUseCase.invoke(roverCommandsModel)
 
-        // Assert
-        assertEquals(Rover(1, 2, "N"), result)*/
+        assertThat(actual.exceptionOrNull()).isEqualTo(exception)
     }
 }

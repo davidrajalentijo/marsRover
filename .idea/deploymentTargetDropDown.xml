@@ -2,6 +2,12 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="InstructionsFragmentTest">
+        <State />
+      </entry>
+      <entry key="ResultFragmentTest">
+        <State />
+      </entry>
       <entry key="app">
         <State>
           <targetSelectedWithDropDown>
@@ -10,16 +16,13 @@
               <deviceKey>
                 <Key>
                   <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="$USER_HOME$/.android/avd/Pixel_4_API_34_2.avd" />
+                  <value value="$USER_HOME$/.android/avd/Nexus_One_API_33.avd" />
                 </Key>
               </deviceKey>
             </Target>
           </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-04-19T15:14:36.336323Z" />
+          <timeTargetWasSelectedWithDropDown value="2024-04-22T09:46:24.546689Z" />
         </State>
-      </entry>
-      <entry key="error_toast_is_displayed()">
-        <State />
       </entry>
     </value>
   </component>

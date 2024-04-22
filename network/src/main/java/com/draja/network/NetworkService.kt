@@ -34,7 +34,6 @@ class NetworkService {
     ): Result<T> = resultApiCall {
         getHttpClient().request(BASE_URL + url) {
             method = getHttpMethod(httMethod)
-            Log.d("NetworkService", "Requesting $body")
             body?.let {
                 setBody(it)
             }

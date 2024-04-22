@@ -42,30 +42,29 @@ class ResultFragment : Fragment() {
         }
     }
 
+
     private fun roverPositionObserver() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.roverPosition.collect { state ->
-                when (state) {
-                    is ViewState.Loading -> {
-                        showLoading(true)
-                    }
+        viewModel.roverPosition.observe(viewLifecycleOwner) {
+            when (it) {
+                is ViewState.Loading -> {
+                    showLoading(true)
+                }
 
-                    is ViewState.Success -> {
-                        showLoading(false)
-                        setResultValues(state.data)
-                    }
+                is ViewState.Success -> {
+                    showLoading(false)
+                    setResultValues(it.data)
+                }
 
-                    is ViewState.Error -> {
-                        Toast.makeText(
-                            context,
-                            R.string.error_message,
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
+                is ViewState.Error -> {
+                    Toast.makeText(
+                        context,
+                        R.string.error_message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
 
-                    ViewState.Idle -> {
-                        showLoading(false)
-                    }
+                ViewState.Idle -> {
+                    showLoading(false)
                 }
             }
         }

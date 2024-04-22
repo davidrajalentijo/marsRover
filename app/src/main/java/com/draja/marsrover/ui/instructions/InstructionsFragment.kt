@@ -1,6 +1,7 @@
 package com.draja.marsrover.ui.instructions
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,6 +33,7 @@ class InstructionsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initView()
         sendInstructionsObserver()
+        viewModel.resetMoveRoverState()
     }
 
     private fun initView() {
@@ -74,32 +76,30 @@ class InstructionsFragment : Fragment() {
     }
 
     private fun sendInstructionsObserver() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.moveRover.collect { state ->
-                when (state) {
-                    is ViewState.Loading -> {
-                        showLoading(true)
-                    }
+        viewModel.moveRover.observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is ViewState.Loading -> {
+                    showLoading(true)
+                }
 
-                    is ViewState.Success -> {
-                        showLoading(false)
-                        findNavController().navigate(
-                            R.id.action_instructionsFragment_to_resultFragment
-                        )
-                    }
+                is ViewState.Success -> {
+                    showLoading(false)
+                    findNavController().navigate(
+                        R.id.action_instructionsFragment_to_resultFragment
+                    )
+                }
 
-                    is ViewState.Error -> {
-                        showLoading(false)
-                        Toast.makeText(
-                            context,
-                            R.string.error_message,
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
+                is ViewState.Error -> {
+                    showLoading(false)
+                    Toast.makeText(
+                        context,
+                        R.string.error_message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
 
-                    else -> {
-                        showLoading(false)
-                    }
+                else -> {
+                    showLoading(false)
                 }
             }
         }

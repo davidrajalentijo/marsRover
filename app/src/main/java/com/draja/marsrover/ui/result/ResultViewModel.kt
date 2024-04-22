@@ -1,6 +1,8 @@
 package com.draja.marsrover.ui.result
 
 import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.draja.marsrover.domain.GetRoverPositionUseCase
@@ -17,9 +19,8 @@ class ResultViewModel(
     private val getRoverPositionUseCase: GetRoverPositionUseCase
 ) : ViewModel() {
 
-    private val _roverPosition = MutableStateFlow<ViewState<RoverPositionModel>>(ViewState.Idle)
-    val roverPosition = _roverPosition.asStateFlow()
-
+    private val _roverPosition = MutableLiveData<ViewState<RoverPositionModel>>(ViewState.Idle)
+    val roverPosition: LiveData<ViewState<RoverPositionModel>> = _roverPosition
     init {
         getRoverPosition()
     }

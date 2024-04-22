@@ -71,6 +71,9 @@ dependencies {
     androidTestImplementation("androidx.test:core:1.4.1")
     androidTestImplementation("androidx.test:runner:1.4.1")*/
     testImplementation("org.mockito:mockito-core:5.6.0")
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.9.1")
+    testImplementation("io.mockk:mockk:1.13.5")
+    testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.24")
     debugImplementation("androidx.fragment:fragment-testing:1.6.2")
     debugImplementation("androidx.fragment:fragment-ktx:1.6.2")
     debugImplementation("androidx.test:core:1.5.0")
