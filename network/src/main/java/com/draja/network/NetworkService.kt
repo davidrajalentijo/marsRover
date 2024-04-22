@@ -24,6 +24,10 @@ class NetworkService {
                 }
             }
         }
+
+        internal fun destroy() {
+            instance = null
+        }
     }
 
     suspend inline fun <reified T> createApi(

@@ -44,6 +44,7 @@ dependencies {
     implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.ktor.okhttp)
     testImplementation(libs.junit)
+    testImplementation(libs.assertk.jvm)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
